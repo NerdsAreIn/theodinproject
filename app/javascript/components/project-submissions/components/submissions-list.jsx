@@ -22,7 +22,7 @@ const SubmissionsList = ({
   const hasSubmissions = submissions.length > 0;
 
   return (
-    <div>
+    <div data-test-id="submissions-list">
       { userSubmission
         ? (
           <Submission
@@ -65,7 +65,7 @@ const SubmissionsList = ({
               most liked submissions -
               {' '}
             </span>
-            <a href={allSubmissionsPath}> View full list of solutions</a>
+            <a data-test-id="view-all-projects-link" href={allSubmissionsPath}> View full list of solutions</a>
           </p>
         )}
     </div>

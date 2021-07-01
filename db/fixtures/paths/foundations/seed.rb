@@ -98,6 +98,7 @@ course.add_section do |section|
     foundation_lessons.fetch('Developer Tools 2'),
     foundation_lessons.fetch('Fundamentals Part 3'),
     foundation_lessons.fetch('Problem Solving'),
+    foundation_lessons.fetch('Understanding Errors'),
     foundation_lessons.fetch('Rock Paper Scissors'),
     foundation_lessons.fetch('Clean Code'),
     foundation_lessons.fetch('Fundamentals Part 4'),
@@ -123,15 +124,15 @@ course.add_section do |section|
 end
 
 # +++++++++++++++++++++++++++++++
-# SECTION - Tying it All Together
+# SECTION - Conclusion
 # +++++++++++++++++++++++++++++++
 course.add_section do |section|
-  section.title = 'Tying it All Together Maybe'
-  section.description = "Now that you've had a healthy taste of all the major components in a web application, we'll take a step back and remember where they all fit into the bigger picture."
+  section.title = 'Conclusion'
+  section.description = "Now that you've had a healthy taste of the basics of web development, it's time to choose what specialty path you would like to take."
   section.identifier_uuid = '22cbdd2f-785b-40c9-9c54-d21755974df7'
 
   section.add_lessons(
-    foundation_lessons.fetch('Conclusion'),
+    foundation_lessons.fetch('Choose Your Path Forward'),
   )
 end
 

@@ -158,6 +158,13 @@ def foundation_lessons
       is_project: false,
       identifier_uuid: 'c7d096d3-d0db-4f4a-80f9-f1fd79ee6c6b',
     },
+    'Understanding Errors' => {
+      title: 'Understanding Errors',
+      description: 'In this lesson we will learn how to read error messages and understand how to resolve them.',
+      is_project: false,
+      url: '/foundations/javascript_basics/understanding_errors.md',
+      identifier_uuid: '60cda1f9-a935-4337-b315-c11ff4834ae4'
+    },
     'Rock Paper Scissors' => {
       title: 'Rock Paper Scissors',
       description: 'Rock Paper Scissors',
@@ -227,9 +234,9 @@ def foundation_lessons
       url: '/foundations/the_back_end/introduction_to_frameworks.md',
       identifier_uuid: '18a063b0-c22c-4415-aba4-eb2865a27fc4',
     },
-    'Conclusion' => {
-      title: 'Conclusion',
-      description: "How far you've come already!  But this ride's only just begun...",
+    'Choose Your Path Forward' => {
+      title: 'Choose Your Path Forward',
+      description: "How far you've come already! But this ride's only just begun...",
       is_project: false,
       url: '/foundations/tying_it_all_together/conclusion.md',
       choose_path_lesson: true,

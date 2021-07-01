@@ -21,21 +21,21 @@ RSpec.describe Seeds::CourseSeeder do
     it 'create a course with the given title' do
       course_seeder
 
-      course = Course.find_by_identifier_uuid('course_uuid')
+      course = Course.find_by(identifier_uuid: 'course_uuid')
       expect(course.title).to eq('Foundations')
     end
 
     it 'create a course with the given description' do
       course_seeder
 
-      course = Course.find_by_identifier_uuid('course_uuid')
+      course = Course.find_by(identifier_uuid: 'course_uuid')
       expect(course.description).to eq('a foundation course')
     end
 
     it 'create a course with the given position' do
       course_seeder
 
-      course = Course.find_by_identifier_uuid('course_uuid')
+      course = Course.find_by(identifier_uuid: 'course_uuid')
       expect(course.position).to eq(1)
     end
 
@@ -51,7 +51,7 @@ RSpec.describe Seeds::CourseSeeder do
   end
 
   describe '#add_section' do
-    let(:course) { Course.find_by_identifier_uuid('course_uuid') }
+    let(:course) { Course.find_by(identifier_uuid: 'course_uuid') }
 
     it 'adds a section to the course' do
       course_seeder
@@ -108,12 +108,12 @@ RSpec.describe Seeds::CourseSeeder do
 
     it 'deletes lessons that are in the db but removed from the seeds file' do
       course = create(:course, identifier_uuid: 'course_uuid')
-      section_one = create(:section, identifier_uuid: 'section_uuid_1', course_id: course.id)
-      section_two = create(:section, identifier_uuid: 'section_uuid_2', course_id: course.id)
+      section_one = create(:section, identifier_uuid: 'section_uuid_1', course: course)
+      section_two = create(:section, identifier_uuid: 'section_uuid_2', course: course)
 
-      create(:lesson, section_id: section_one.id, identifier_uuid: 'lesson_uuid_1')
-      lesson_two = create(:lesson, section_id: section_two.id, identifier_uuid: 'lesson_uuid_2')
-      create(:lesson, section_id: section_one.id, identifier_uuid: 'lesson_uuid_3')
+      create(:lesson, section: section_one, course_id: course.id, identifier_uuid: 'lesson_uuid_1')
+      lesson_two = create(:lesson, section: section_two, course_id: course.id, identifier_uuid: 'lesson_uuid_2')
+      create(:lesson, section: section_one, course_id: course.id, identifier_uuid: 'lesson_uuid_3')
 
       course_seeder.add_section do |section|
         section.identifier_uuid = 'section_uuid_2'

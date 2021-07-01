@@ -37,6 +37,7 @@ course.add_section do |section|
     javascript_lessons.fetch('Tic Tac Toe'),
     javascript_lessons.fetch('Classes'),
     javascript_lessons.fetch('ES6 Modules'),
+    javascript_lessons.fetch('Webpack'),
     javascript_lessons.fetch('Restaurant Page'),
     javascript_lessons.fetch('OOP Principles'),
     javascript_lessons.fetch('Todo List'),
@@ -55,7 +56,6 @@ course.add_section do |section|
     javascript_lessons.fetch('Linting'),
     javascript_lessons.fetch('Dynamic User Interface Interactions'),
     javascript_lessons.fetch('Forms'),
-    javascript_lessons.fetch('Webpack'),
     javascript_lessons.fetch('ES?'),
   )
 end
@@ -74,6 +74,22 @@ course.add_section do |section|
     javascript_lessons.fetch('Working with APIs'),
     javascript_lessons.fetch('Async and Await'),
     javascript_lessons.fetch('Weather App'),
+  )
+end
+
+# ++++++++++++++++++++++++++++
+# SECTION - Testing JavaScript
+# ++++++++++++++++++++++++++++
+course.add_section do |section|
+  section.title = 'Testing JavaScript'
+  section.description = "Test driven development is an important skill in today's dev world. This section digs into the details of writing automated JavaScript tests."
+  section.identifier_uuid = 'def99a36-0705-4b03-8aee-0aa0ae2b447c'
+
+  section.add_lessons(
+    javascript_lessons.fetch('Testing Basics'),
+    javascript_lessons.fetch('Testing Practice'),
+    javascript_lessons.fetch('More Testing'),
+    javascript_lessons.fetch('Battleship'),
   )
 end
 
@@ -96,22 +112,6 @@ course.add_section do |section|
     react_lessons.fetch('Router'),
     react_lessons.fetch('Shopping Cart'),
     react_lessons.fetch('Advanced Concepts'),
-  )
-end
-
-# ++++++++++++++++++++++++++++
-# SECTION - Testing JavaScript
-# ++++++++++++++++++++++++++++
-course.add_section do |section|
-  section.title = 'Testing JavaScript'
-  section.description = "Test driven development is an important skill in today's dev world. This section digs into the details of writing automated JavaScript tests."
-  section.identifier_uuid = 'def99a36-0705-4b03-8aee-0aa0ae2b447c'
-
-  section.add_lessons(
-    javascript_lessons.fetch('Testing Basics'),
-    javascript_lessons.fetch('Testing Practice'),
-    javascript_lessons.fetch('More Testing'),
-    javascript_lessons.fetch('Battleship'),
   )
 end
 

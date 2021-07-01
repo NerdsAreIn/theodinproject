@@ -118,7 +118,7 @@ const ProjectSubmissions = ({ submissions, userSubmission }) => {
       <div className="submissions__header">
         <div className="submissions__course">
           <h3 className="submissions__title">Solutions:</h3>
-          <h4 className="submissions__project-title">
+          <h4 data-test-id="course-lesson-title" className="submissions__project-title">
             {course.title}
             : (
             {lesson.title}
@@ -146,7 +146,12 @@ const ProjectSubmissions = ({ submissions, userSubmission }) => {
 
         <div>
           { !userProjectSubmission && (
-            <button type="button" className="submissions__add button button--primary" onClick={toggleShowCreateModal}>
+            <button
+              type="button"
+              className="submissions__add button button--primary"
+              onClick={toggleShowCreateModal}
+              data-test-id="add_submission_btn"
+            >
               Add Solution
             </button>
           )}

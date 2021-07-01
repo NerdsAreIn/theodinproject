@@ -32,13 +32,22 @@ ActiveAdmin.register Flag do
         flag.project_submission.user.username
       end
       row :lesson do
-        link_to flag.project_submission.lesson.title, flag.project_submission.lesson, target: '_blank'
+        link_to(
+          flag.project_submission.lesson.title,
+          path_course_lesson_path(
+            flag.project_submission.lesson.path,
+            flag.project_submission.lesson.course,
+            flag.project_submission.lesson
+          ),
+          target: '_blank', rel: 'noopener'
+        )
       end
       row :repo_url do
-        link_to flag.project_submission.repo_url, flag.project_submission.repo_url, target: '_blank'
+        link_to flag.project_submission.repo_url, flag.project_submission.repo_url, target: '_blank', rel: 'noopener'
       end
       row :live_preview_url do
-        link_to flag.project_submission.live_preview_url, flag.project_submission.live_preview_url, target: '_blank'
+        link_to flag.project_submission.live_preview_url, flag.project_submission.live_preview_url, target: '_blank',
+                                                                                                    rel: 'noopener'
       end
       row :status
       row :taken_action
@@ -59,7 +68,7 @@ ActiveAdmin.register Flag do
 
   controller do
     def ban_flagged_user
-      result = Admin::Flags::BanUser.call(flag: resource)
+      result = Admin::Flags::BanUser.call(admin: current_user, flag: resource)
 
       if result.success?
         redirect_to resource_path(resource), notice: 'Success: User has been banned.'
@@ -69,7 +78,7 @@ ActiveAdmin.register Flag do
     end
 
     def dismiss
-      result = Admin::Flags::Dismiss.call(flag: resource)
+      result = Admin::Flags::Dismiss.call(admin: current_user, flag: resource)
 
       if result.success?
         redirect_to resource_path(resource), notice: 'Success: Flag has been dismissed.'
@@ -79,9 +88,13 @@ ActiveAdmin.register Flag do
     end
 
     def remove_project_submission
-      resource.project_submission.destroy
+      result = Admin::Flags::RemoveSubmission.call(admin: current_user, flag: resource)
 
-      redirect_to admin_flags_path, notice: 'Success: Submission has been removed.'
+      if result.success?
+        redirect_to admin_flags_path, notice: 'Success: Submission has been removed.'
+      else
+        redirect_to admin_flags_path, notice: 'Failure: Unable to remove project, please check logs.'
+      end
     end
   end
 end

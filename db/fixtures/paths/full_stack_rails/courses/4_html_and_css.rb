@@ -3,7 +3,7 @@
 ########################
 course = @path.add_course do |course|
   course.title = 'HTML and CSS'
-  course.description = "Good web design doesn't happen by accident. This course takes a deeper look at front-end design and development, expanding on what is covered in Foundations. You'll learn how to design and develop websites that look great in any device and you'll be equipped to deeply understand and create your own responsive design framework!"
+  course.description = "Good web design doesn't happen by accident. Now that you've gained a strong foundation in programming, this course takes a deeper look at front-end design, expanding on what is covered in Foundations. You'll learn how to design websites that look great on any device and you'll be equipped to deeply understand and create your own responsive design framework!"
   course.identifier_uuid = '9f2e358a-50ad-42ea-8f64-8d1e613d74ce'
 end
 
@@ -89,7 +89,6 @@ course.add_section do |section|
     html_and_css_lessons.fetch('Responsive Design'),
     html_and_css_lessons.fetch('Building with Responsive Design'),
     html_and_css_lessons.fetch('CSS Frameworks like Bootstrap and Foundation'),
-    html_and_css_lessons.fetch('Using Bootstrap'),
   )
 end
 
